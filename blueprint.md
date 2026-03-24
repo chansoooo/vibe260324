@@ -10,18 +10,21 @@ This is a simple web application that generates lottery numbers.
 *   Display the generated numbers.
 *   Display a history of the last 5 generated number sets.
 *   **Dark/Light Mode Toggle:** Switch between dark and light themes with persistence using `localStorage`.
+*   **Real-time Market Data:** WTI Oil and Silver price mini charts at the top of the site, integrated with theme switching.
 *   **Partnership Inquiry Form:** A simple contact form for partnerships, powered by Formspree.
 
 ## Design
 
-*   **Layout:** A single-column layout with a lottery generator section and a partnership inquiry section separated by a horizontal rule.
+*   **Layout:** A single-column layout with a market data section at the top, followed by the lottery generator and a partnership inquiry section.
 *   **Colors:** A modern color palette with dark (default) and light modes.
 *   **Typography:** Clear and readable fonts.
 *   **Components:**
+    *   Real-time WTI Oil and Silver mini charts (TradingView).
     *   A theme toggle button.
     *   A "Generate" button for lottery numbers.
     *   A display area for current and historical numbers.
     *   A partnership inquiry form with Name, Email, and Message fields.
+
 
 ## Plan
 

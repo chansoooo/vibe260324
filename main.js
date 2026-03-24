@@ -47,6 +47,42 @@ const currentNumbersContainer = document.getElementById('current-numbers');
 const historyContainer = document.getElementById('history');
 const themeToggle = document.getElementById('theme-toggle');
 
+// Market Widgets Rendering
+function renderMarketWidgets(isLight) {
+    const theme = isLight ? 'light' : 'dark';
+    const widgets = [
+        { id: 'wti-oil-widget', symbol: 'TVC:USOIL', title: 'WTI Oil' },
+        { id: 'silver-widget', symbol: 'TVC:SILVER', title: 'Silver' }
+    ];
+
+    widgets.forEach(widget => {
+        const container = document.getElementById(widget.id);
+        if (!container) return;
+        
+        container.innerHTML = ''; // Clear previous widget
+        
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js';
+        script.async = true;
+        script.innerHTML = JSON.stringify({
+            "symbol": widget.symbol,
+            "width": "100%",
+            "height": "100%",
+            "locale": "en",
+            "dateRange": "1D",
+            "colorTheme": theme,
+            "trendLineColor": "rgba(41, 98, 255, 1)",
+            "underLineColor": "rgba(41, 98, 255, 0.3)",
+            "underLineBottomColor": "rgba(41, 98, 255, 0)",
+            "isTransparent": true,
+            "autosize": true,
+            "largeChartUrl": ""
+        });
+        container.appendChild(script);
+    });
+}
+
 // Theme Toggle Logic
 function setTheme(isLight) {
     if (isLight) {
@@ -58,13 +94,13 @@ function setTheme(isLight) {
         themeToggle.textContent = 'Light Mode';
         localStorage.setItem('theme', 'dark');
     }
+    renderMarketWidgets(isLight);
 }
 
-// Initialize theme from localStorage
+// Initialize theme and widgets
 const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-    setTheme(true);
-}
+const initialIsLight = savedTheme === 'light';
+setTheme(initialIsLight);
 
 themeToggle.addEventListener('click', () => {
     const isLight = document.body.classList.contains('light-mode');
