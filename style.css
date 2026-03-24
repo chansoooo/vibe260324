@@ -121,3 +121,78 @@ body.light-mode lotto-numbers {
     font-size: 1.5rem;
     font-weight: bold;
 }
+
+/* Partnership Section */
+hr {
+    margin: 3rem 0;
+    border: none;
+    border-top: 1px solid var(--secondary-color);
+}
+
+.partnership-section {
+    margin-top: 2rem;
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.partnership-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color var(--transition-speed), background-color var(--transition-speed);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#submit-inquiry {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform 0.1s;
+}
+
+#submit-inquiry:hover {
+    background-color: #66bb6a;
+}
+
+#submit-inquiry:active {
+    transform: scale(0.98);
+}
