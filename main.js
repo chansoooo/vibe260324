@@ -45,6 +45,31 @@ customElements.define('lotto-numbers', LottoNumbers);
 const generateButton = document.getElementById('generate');
 const currentNumbersContainer = document.getElementById('current-numbers');
 const historyContainer = document.getElementById('history');
+const themeToggle = document.getElementById('theme-toggle');
+
+// Theme Toggle Logic
+function setTheme(isLight) {
+    if (isLight) {
+        document.body.classList.add('light-mode');
+        themeToggle.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.body.classList.remove('light-mode');
+        themeToggle.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// Initialize theme from localStorage
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+    setTheme(true);
+}
+
+themeToggle.addEventListener('click', () => {
+    const isLight = document.body.classList.contains('light-mode');
+    setTheme(!isLight);
+});
 
 function generateLottoNumbers() {
     const numbers = new Set();
