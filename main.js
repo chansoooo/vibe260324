@@ -84,6 +84,12 @@ generateButton.addEventListener('click', () => {
     if (currentNumbers) {
         const oldNumbers = document.createElement('lotto-numbers');
         oldNumbers.setAttribute('numbers', currentNumbers.getAttribute('numbers'));
+        
+        // Limit history to 5 items
+        if (historyContainer.children.length >= 5) {
+            historyContainer.removeChild(historyContainer.lastElementChild);
+        }
+        
         historyContainer.prepend(oldNumbers);
     }
 

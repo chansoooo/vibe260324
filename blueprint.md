@@ -8,7 +8,7 @@ This is a simple web application that generates lottery numbers.
 
 *   Generate 6 unique random numbers between 1 and 45.
 *   Display the generated numbers.
-*   Display a history of generated numbers.
+*   Display a history of the last 5 generated number sets.
 *   **Dark/Light Mode Toggle:** Switch between dark and light themes with persistence using `localStorage`.
 *   **Partnership Inquiry Form:** A simple contact form for partnerships, powered by Formspree.
 
